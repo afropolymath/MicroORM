@@ -1,0 +1,7 @@
+{
+    "name": "andela-cnnadi/micro-orm",
+    "description": "Simple PHP ORM Solution",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
