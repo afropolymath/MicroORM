@@ -1,12 +1,13 @@
-<?php
-require_once './Connector.php';
+<?php namespace Chidi\ORM;
+
+use Chidi\ORM\Connector;
 
 /**
  * MicroORM Framework
  *
  * @package default
  * @author Chidiebere I. Nnadi
- **/ 
+ **/
 
 class MicroORM {
   /**
@@ -57,7 +58,7 @@ class MicroORM {
    * @var array
    */
   private $changes = [];
-  
+
   /**
    * Creates a new Class Instance based on fields names and values and an optional id.
    *
@@ -76,13 +77,13 @@ class MicroORM {
     if(!($fields instanceof Object)) {
       $fields = (Object) $fields;
     }
-    
+
     if($id && $fields->id == $id) {
       $this->id = $id;
     }
-    
+
     $flag = true;
-    
+
     if($this->__checkConfig()) {
       $_fields = get_object_vars($fields);
       foreach ($this->model as $field => $prop) {
@@ -209,7 +210,7 @@ class MicroORM {
   public function update($field, $value) {
     if($this->__fieldValidate($field, $value)) {
       if($this->id != false) {
-        $this->changes[$field] = $value; 
+        $this->changes[$field] = $value;
       }
       $this->fields->$field = $value;
     } else {
@@ -226,7 +227,7 @@ class MicroORM {
   public function asObject() {
     return $this->fields;
   }
-  
+
   /**
    * Returns an boolean telling whether field value is valid or not
    *
@@ -290,7 +291,7 @@ class MicroORM {
    * @return void
    */
   // public function __createTable() {
-    
+
   // }
 
   /**
@@ -301,15 +302,20 @@ class MicroORM {
    */
   public static function get($id) {
     $_class = get_called_class();
-    $_table = strtolower($_class);
+    $_table = strtolower($_class) . 's';
+
     $conn = new Connector();
     $res = $conn->query("SELECT * FROM $_table WHERE id = $id");
+
     if(!$conn->error && $res->num_rows > 0) {
-      return new $_class($res->fetch_object(), $conn, $id);
+      $result = $res->fetch_object();
+      return $result;
     } else {
-      $this->handleError("Database error or no available records -> " . $conn->error);
+      self::handleError("Database error or no available records -> " . $conn->error);
       return false;
     }
+
+    $res->close();
   }
 
   /**

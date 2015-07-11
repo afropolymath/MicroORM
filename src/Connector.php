@@ -1,4 +1,6 @@
-<?php
+<?php namespace Chidi\ORM;
+
+use mysqli;
 /**
  * Wrapper Class for MySQLi
  *
@@ -8,7 +10,7 @@
 class Connector extends mysqli {
   private $config;
   private $link;
-  
+
   /**
    * Create a new instance of MySQLi Object using the parent constructor
    *
@@ -25,7 +27,7 @@ class Connector extends mysqli {
    * @return void
    **/
   public function loadConfig() {
-    require_once './config/config.php';
+    require_once 'config/config.php';
     $this->config = $config;
   }
 }
