@@ -9,7 +9,7 @@ use Chidi\ORM\Connector;
  * @author Chidiebere I. Nnadi
  **/
 
-class MicroORM {
+class Cashew {
   /**
    * Primary Key Value.
    *
@@ -304,7 +304,7 @@ class MicroORM {
     $_class = get_called_class();
     $_table = strtolower($_class) . 's';
 
-    $conn = new Connector();
+    $conn = new Connector;
     $res = $conn->query("SELECT * FROM $_table WHERE id = $id");
 
     if(!$conn->error && $res->num_rows > 0) {
