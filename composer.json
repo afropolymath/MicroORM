@@ -1,8 +1,23 @@
 {
     "name": "andela-cnnadi/micro-orm",
     "description": "Simple PHP ORM Solution",
+    "keywords": ["github","Cashew","MicroORM","Open Source","Database"],
+    "license": "MIT",
+    "authors": [
+     {
+          "name": "andela-cnnadi",
+          "email": "chidi.nnadi@andela.com"
+      },
+      {
+          "name": "busayo",
+          "email": "prosperotemuyiwa@gmail.com"
+      }
+    ],
     "require": {
         "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
     },
     "autoload":{
        "psr-4": {
