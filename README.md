@@ -16,16 +16,23 @@ To create a model you need to create a new class that extends the Cashew class. 
 By Default, Cashew Micro-ORM makes use of plural conventions for table names.
 
 ```php
-  class User extends Cashew {
+<?php
 
-  }
+class User extends Cashew {
 
-  // table name `users` will automatically be polled from the database.
+}
+// table name `users` will automatically be polled from the database.
+?>
 
-  class Animal extends Cashew {
+```
+```php
+<?php
 
-  }
-  // table name `animals` will automatically be polled from the database.
+class Animal extends Cashew {
+
+}
+// table name `animals` will automatically be polled from the database.
+?>
 ```
 
 ```
@@ -38,7 +45,8 @@ By Default, Cashew Micro-ORM makes use of plural conventions for table names.
   - index.php
 ```
 Models can then be required within the application as shown below
-```
+
+```php
 require 'vendor/autoload.php';
 require 'models/User.php';
 require 'models/Phone.php';
@@ -53,8 +61,12 @@ The field configuration contains key-value pairs of the various configuration op
 - `size` - Supports fields like varchar, int. Used to specify the maximum length of the field.
 
 An example of a Model using the configuration options is shown below:
-```
+
+```php
 <?php
+
+use Chidi\ORM\Cashew;
+
 class User extends Cashew {
   protected $model = [
     'title' => [
