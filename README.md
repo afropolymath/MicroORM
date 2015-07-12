@@ -1,11 +1,13 @@
-# MicroORM
+#Cashew - Micro ORM
 Lightweight PHP ORM Solution. Supports only MySQL for now.
+
 ###Installation
 Run the following command within the root folder of your application
 ```
 composer require "andela-cnnadi/micro-orm": "dev-master"
 ```
 Or you can just add the package name "andela-cnnadi/micro-orm": "dev-master" as a dependency within your composer.json file.
+
 ###Getting Started
 To get started you need to configure your database connection. This can be done within the `config` folder in the package directory. There's a file called `config.php` which you can fill out with your database configuration information.
 ###Start Creating Models
