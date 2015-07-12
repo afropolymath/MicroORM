@@ -10,22 +10,33 @@ Or you can just add the package name "andela-cnnadi/micro-orm": "dev-master" as 
 
 ###Getting Started
 To get started you need to configure your database connection. This can be done within the `config` folder in the package directory. There's a file called `config.php` which you can fill out with your database configuration information.
+
 ###Start Creating Models
-To create a model you need to create a new class that extends the MicroORM class. Each separate model should extend this class. Recommended file structure is shown below. See example for more details.
+To create a model you need to create a new class that extends the Cashew class. Each separate model should extend this class. Recommended file structure is shown below. See example for more details.
+By Default, Cashew Micro-ORM makes use of plural conventions for table names.
+
+```php
+  class User extends Cashew {
+
+  }
+
+  // table name will automatically become `users`
+```
+
 ```
 -app
   - vendor
     - micro-orm
   - models
-    - ModelA.php
-    - ModelB.php
+    - User.php
+    - Phone.php
   - index.php
 ```
 Models can then be required within the application as shown below
 ```
 require 'vendor/autoload.php';
-require 'models/ModelA.php';
-require 'models/ModelB.php';
+require 'models/User.php';
+require 'models/Phone.php';
 ```
 
 ###Model Configuration options
@@ -39,7 +50,7 @@ The field configuration contains key-value pairs of the various configuration op
 An example of a Model using the configuration options is shown below:
 ```
 <?php
-class ModelA extends MicroORM {
+class User extends Cashew {
   protected $model = [
     'title' => [
       'type' => 'varchar',
