@@ -20,7 +20,12 @@ By Default, Cashew Micro-ORM makes use of plural conventions for table names.
 
   }
 
-  // table name will automatically become `users`
+  // table name `users` will automatically be polled from the database.
+
+  class Animal extends Cashew {
+
+  }
+  // table name `animals` will automatically be polled from the database.
 ```
 
 ```
