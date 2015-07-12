@@ -82,3 +82,13 @@ class User extends Cashew {
 }
 ?>
 ```
+
+####Model Methods
+* `get` - Fetches the result from a table based on an id. Example is shown below:
+
+```php
+  // $id must be a number
+  $user = User::get($id);
+```
+
+
